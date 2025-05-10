@@ -101,4 +101,4 @@ Dưới đây là sơ đồ topo mạng mô tả cấu trúc kết nối giữa 
 - Mọi ý kiến đóng góp hoặc báo cáo lỗi, vui lòng tạo issue trên GitHub hoặc liên hệ nhóm phát triển.
 
 ## 8. Giấy phép
-Dự án được phát triển dưới giấy phép [MIT License](LICENSE).
+Copyright Group 12 NT113.P11
