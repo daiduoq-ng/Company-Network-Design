@@ -65,7 +65,7 @@ Công ty Outsource O-UIT hiện có hai cơ sở chính tại Thành phố Hồ 
 ## 3. Sơ đồ topo mạng
 Dưới đây là sơ đồ topo mạng mô tả cấu trúc kết nối giữa trụ sở chính (Thủ Đức) và chi nhánh (Quận 3), bao gồm các thành phần như router, switch, Data Center, và các mạng con (VLAN) cho các phòng ban, Wi-Fi, và VPN site-to-site.
 
-![Network Topology Diagram](./Network Topology Diagram.png)
+![Network Topology Diagram](./Network%20Topology%20Diagram.png)
 
 
 
