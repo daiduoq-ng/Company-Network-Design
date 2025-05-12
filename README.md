@@ -1,43 +1,43 @@
-# README: Thiết Kế Hệ Thống Mạng cho Công ty O-UIT
+# README: Network System Design for O-UIT Company
 
-## 1. Giới thiệu tổng quan
-Công ty Outsource O-UIT hiện có hai cơ sở chính tại Thành phố Hồ Chí Minh:
+## 1. General Overview
+O-UIT, an outsourcing company, operates two main facilities in Ho Chi Minh City:
 
-- **Trụ sở chính (Thủ Đức)**: Tọa lạc trong một tòa nhà 5 tầng hiện đại, được trang bị Data Center quy mô lớn để xử lý và lưu trữ dữ liệu cho các dự án quốc tế. Đây là nơi làm việc của các phòng ban quản lý (CEO, HR, Project Manager, Technical Manager, Business Analyst, IT Manager) và các nhóm chuyên môn cao (developer, tester). Các nhóm này đảm nhiệm các dự án phần mềm và giải pháp công nghệ phức tạp, đáp ứng tiêu chuẩn khắt khe từ đối tác nước ngoài.
-- **Chi nhánh (Quận 3)**: Tập trung vào các dự án phục vụ thị trường trong nước. Các nhóm developer và tester tại đây làm việc linh hoạt để đáp ứng yêu cầu đặc thù của khách hàng Việt Nam, đồng thời phối hợp chặt chẽ với trụ sở chính để đảm bảo chất lượng và tiến độ dự án.
+- **Headquarters (Thu Duc)**: Located in a modern 5-story building equipped with a large-scale Data Center for processing and storing data for international projects. This site houses management departments (CEO, HR, Project Manager, Technical Manager, Business Analyst, IT Manager) and specialized teams (developers, testers). These teams handle complex software projects and technology solutions, meeting stringent standards from international partners.
+- **Branch Office (District 3)**: Focuses on projects for the domestic market. Developers and testers at this location work flexibly to meet specific requirements of Vietnamese clients while collaborating closely with the headquarters to ensure project quality and timelines.
 
-## 2. Các thông tin cơ bản về đề tài
+## 2. Project Background Information
 
-### Phân tích yêu cầu khách hàng
+### Customer Requirements Analysis
 
-#### Trụ sở chính (Thủ Đức)
-| **Yêu cầu** | **Nội dung** |
-|-------------|--------------|
-| **Thiết bị sử dụng** | - Developer và Tester: Chỉ được sử dụng máy bàn công ty, không được dùng laptop cá nhân để truy cập mạng công ty.<br>- CEO, HR, Project Manager, Technical Manager, Business Analyst, IT Manager: Được sử dụng laptop cá nhân và truy cập Wi-Fi nội bộ qua tài khoản xác thực. |
-| **Wi-Fi nội bộ** | - Cung cấp hệ thống Wi-Fi nội bộ với khả năng xác thực người dùng (tài khoản xác thực).<br>- Dành cho CEO, HR, Project Manager, Technical Manager, Business Analyst, IT Manager. |
-| **Wi-Fi công cộng** | - Hệ thống Wi-Fi công cộng dành cho khách hoặc nhu cầu không yêu cầu bảo mật cao.<br>- Kết nối Internet riêng biệt với Wi-Fi nội bộ. |
-| **Hệ thống phần cứng cho server ảo** | - Triển khai hệ thống phần cứng để phục vụ việc triển khai ứng dụng trong giai đoạn test.<br>- Đảm bảo hiệu suất cao và khả năng mở rộng cho các yêu cầu công việc tương lai. |
-| **Dịch vụ Cloud** | - Sử dụng dịch vụ Cloud để triển khai ứng dụng trong giai đoạn staging, cho phép khách hàng thử nghiệm trước khi ra mắt.<br>- Đảm bảo an toàn và bảo mật trong quá trình triển khai trên Cloud. |
-| **Kết nối mạng nội bộ** | - Thiết lập mạng nội bộ để kết nối giữa các phòng ban, nhóm phát triển, tester, máy chủ và ứng dụng nội bộ. |
+#### Headquarters (Thu Duc)
+| **Requirement** | **Details** |
+|-----------------|-------------|
+| **Devices Used** | - Developers and Testers: Restricted to company desktop PCs; personal laptops are not permitted to access the company network.<br>- CEO, HR, Project Manager, Technical Manager, Business Analyst, IT Manager: Permitted to use personal laptops and access internal Wi-Fi via authenticated accounts. |
+| **Internal Wi-Fi** | - Provide an internal Wi-Fi system with user authentication (via accounts).<br>- Designated for CEO, HR, Project Manager, Technical Manager, Business Analyst, and IT Manager. |
+| **Public Wi-Fi** | - Provide a public Wi-Fi system for guests or low-security needs.<br>- Use a separate Internet connection from the internal Wi-Fi. |
+| **Virtual Server Hardware** | - Deploy hardware systems to support application testing phases.<br>- Ensure high performance and scalability for future workload requirements. |
+| **Cloud Services** | - Utilize cloud services for deploying applications during the staging phase, allowing clients to test before launch.<br>- Ensure security and data protection during cloud deployment. |
+| **Internal Network Connectivity** | - Establish an internal network to connect departments, development teams, testers, servers, and internal applications. |
 
-#### Chi nhánh (Quận 3)
-| **Yêu cầu** | **Nội dung** |
-|-------------|--------------|
-| **Thiết bị sử dụng** | - Developer và Tester: Chỉ được sử dụng máy bàn công ty, không được dùng laptop cá nhân để truy cập mạng công ty. |
-| **Kết nối VPN site-to-site** | - Sử dụng VPN site-to-site để triển khai ứng dụng lên Data Center tại trụ sở chính.<br>- Đảm bảo bảo mật cao và kết nối ổn định giữa hai điểm. |
-| **Wi-Fi** | - Cung cấp hệ thống Wi-Fi riêng tại chi nhánh với kết nối Internet riêng biệt, phân tách lưu lượng công việc từ máy tính công ty với kết nối công cộng. |
-| **Kết nối với Data Center** | - Đảm bảo kết nối ổn định giữa chi nhánh và Data Center tại trụ sở chính để triển khai ứng dụng. |
-| **Hệ thống bảo mật** | - Áp dụng các giải pháp bảo mật để đảm bảo an toàn khi kết nối và truy cập giữa chi nhánh và trụ sở chính, đặc biệt với VPN site-to-site. |
+#### Branch Office (District 3)
+| **Requirement** | **Details** |
+|-----------------|-------------|
+| **Devices Used** | - Developers and Testers: Restricted to company desktop PCs; personal laptops are not permitted to access the company network. |
+| **Site-to-Site VPN** | - Implement a site-to-site VPN to deploy applications to the Data Center at the headquarters.<br>- Ensure high security and stable connectivity between the two locations. |
+| **Wi-Fi** | - Provide a separate Wi-Fi system at the branch with independent Internet access, isolating work traffic from company PCs and public connections. |
+| **Data Center Connectivity** | - Ensure stable connectivity between the branch and the Data Center at the headquarters for application deployment. |
+| **Security Systems** | - Implement security solutions to ensure safe connectivity and access between the branch and headquarters, especially for the site-to-site VPN. |
 
-### Phân bổ địa chỉ IP
+### IP Address Allocation
 
-#### Trụ sở chính
+#### Headquarters (Thu Duc)
 | **Subnet** | **Size** | **Address** | **Subnet Mask** | **Broadcast** |
 |------------|----------|-------------|-----------------|---------------|
 | Guest Network | 50 | 192.168.1.0 | 255.255.255.192 | 192.168.1.63 |
 | Developer | 50 | 192.168.1.64 | 255.255.255.192 | 192.168.1.127 |
 | Tester | 50 | 192.168.1.128 | 255.255.255.192 | 192.168.1.191 |
-| Server ảo – Data Center | 248 | 192.168.1.192 | 255.255.255.0 | 192.168.10.255 |
+| Virtual Server – Data Center | 248 | 192.168.1.192 | 255.255.255.0 | 192.168.10.255 |
 | Core Switch 1 – Router 1 | 2 | 192.168.2.0 | 255.255.255.252 | 192.168.2.3 |
 | Core Switch 1 – Router 2 | 2 | 192.168.2.4 | 255.255.255.252 | 192.168.2.7 |
 | Core Switch 2 – Router 1 | 2 | 192.168.2.8 | 255.255.255.252 | 192.168.2.11 |
@@ -52,7 +52,7 @@ Công ty Outsource O-UIT hiện có hai cơ sở chính tại Thành phố Hồ 
 | Router 2 – RouterDC | 2 | 192.168.2.116 | 255.255.255.252 | 192.168.2.119 |
 | VPN | 2 | 192.168.5.0 | 255.255.255.192 | - |
 
-#### Chi nhánh (Quận 3)
+#### Branch Office (District 3)
 | **Subnet** | **Size** | **Address** | **Subnet Mask** | **Broadcast** |
 |------------|----------|-------------|-----------------|---------------|
 | Developer | 50 | 192.168.4.0/26 | 255.255.255.192 | 192.168.4.63 |
@@ -62,43 +62,41 @@ Công ty Outsource O-UIT hiện có hai cơ sở chính tại Thành phố Hồ 
 | Core Switch 2 – Router 1 | 2 | 192.168.4.136/30 | 255.255.255.252 | 192.168.4.139 |
 | Core Switch 2 – Router 2 | 2 | 192.168.4.140/30 | 255.255.255.252 | 192.168.4.143 |
 
-## 3. Sơ đồ topo mạng
-Dưới đây là sơ đồ topo mạng mô tả cấu trúc kết nối giữa trụ sở chính (Thủ Đức) và chi nhánh (Quận 3), bao gồm các thành phần như router, switch, Data Center, và các mạng con (VLAN) cho các phòng ban, Wi-Fi, và VPN site-to-site.
+## 3. Network Topology Diagram
+Below is the network topology diagram illustrating the connectivity structure between the headquarters (Thu Duc) and the branch office (District 3), including components such as routers, switches, the Data Center, and subnets (VLANs) for departments, Wi-Fi, and site-to-site VPN.
 
 ![Network Topology Diagram](./Network%20Topology%20Diagram.png)
 
+## 4. Design Objectives
+- Build a secure, high-performance, and scalable network system to meet the needs of both facilities.
+- Ensure data security, particularly during application deployment via site-to-site VPN and cloud services.
+- Clearly segregate network traffic between departments, workgroups, and guest access.
+- Support stable connectivity between the branch office and the Data Center at the headquarters.
 
+## 5. Technologies Used
+- **Wi-Fi**: Internal Wi-Fi system with user authentication via RADIUS or LDAP. Public Wi-Fi uses a separate VLAN.
+- **VPN**: Site-to-site VPN using IPsec or OpenVPN to ensure secure connectivity.
+- **Cloud**: Utilize services like AWS, Azure, or Google Cloud with security measures (IAM, Firewall, Encryption).
+- **Hardware**: Virtual servers using solutions like VMware or Hyper-V, ensuring performance and scalability.
+- **Security**: Firewalls, IDS/IPS, and data encryption to protect connectivity and applications.
 
-## 4. Mục tiêu thiết kế
-- Xây dựng hệ thống mạng an toàn, hiệu suất cao và khả năng mở rộng để đáp ứng nhu cầu của cả hai cơ sở.
-- Đảm bảo bảo mật dữ liệu, đặc biệt khi triển khai ứng dụng qua VPN site-to-site và dịch vụ Cloud.
-- Phân tách rõ ràng lưu lượng mạng giữa các phòng ban, nhóm công việc và khách truy cập.
-- Hỗ trợ kết nối ổn định giữa chi nhánh và Data Center tại trụ sở chính.
+## 6. Implementation Plan
+1. **Analysis and Design**:
+   - Define network structure, VLAN, and IP allocation.
+   - Select equipment (routers, switches, access points, servers).
+2. **Infrastructure Setup**:
+   - Establish the Data Center at the headquarters.
+   - Configure Wi-Fi systems, VPN, and internal network connectivity.
+3. **Testing**:
+   - Test site-to-site VPN connectivity between the two facilities.
+   - Ensure stable operation of internal and public Wi-Fi systems.
+   - Evaluate virtual server performance and cloud application deployment.
+4. **Deployment and Operation**:
+   - Train employees on system usage.
+   - Conduct regular network monitoring and maintenance.
 
-## 5. Công nghệ sử dụng
-- **Wi-Fi**: Hệ thống Wi-Fi nội bộ sử dụng xác thực qua tài khoản (RADIUS hoặc LDAP). Wi-Fi công cộng sử dụng VLAN riêng.
-- **VPN**: Kết nối site-to-site sử dụng IPsec hoặc OpenVPN để đảm bảo bảo mật.
-- **Cloud**: Sử dụng các dịch vụ như AWS, Azure hoặc Google Cloud với các biện pháp bảo mật (IAM, Firewall, Encryption).
-- **Phần cứng**: Server ảo sử dụng các giải pháp như VMware hoặc Hyper-V, đảm bảo hiệu suất và khả năng mở rộng.
-- **Bảo mật**: Tường lửa, IDS/IPS, và mã hóa dữ liệu để bảo vệ kết nối và ứng dụng.
+## 7. Contributions
+- For feedback or bug reports, please create an issue on GitHub or contact the development team.
 
-## 6. Kế hoạch triển khai
-1. **Phân tích và thiết kế**:
-   - Xác định cấu trúc mạng, phân bổ VLAN và IP.
-   - Lựa chọn thiết bị (router, switch, access point, server).
-2. **Cài đặt hạ tầng**:
-   - Thiết lập Data Center tại trụ sở chính.
-   - Cài đặt hệ thống Wi-Fi, VPN và kết nối mạng nội bộ.
-3. **Kiểm thử**:
-   - Kiểm tra kết nối VPN site-to-site giữa hai cơ sở.
-   - Đảm bảo Wi-Fi nội bộ và công cộng hoạt động ổn định.
-   - Test hiệu suất server ảo và triển khai ứng dụng trên Cloud.
-4. **Triển khai và vận hành**:
-   - Đào tạo nhân viên sử dụng hệ thống.
-   - Giám sát và bảo trì mạng định kỳ.
-
-## 7. Đóng góp
-- Mọi ý kiến đóng góp hoặc báo cáo lỗi, vui lòng tạo issue trên GitHub hoặc liên hệ nhóm phát triển.
-
-## 8. Giấy phép
+## 8. License
 Copyright Group 12 NT113.P11
